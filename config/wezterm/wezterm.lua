@@ -11,7 +11,7 @@ end
 --]]
 
 return {
-	font = wezterm.font("HackGenNerd Console", {weight="Regular", stretch="Normal", italic=false}),
+	font = wezterm.font("HackGen Console NF", {weight="Regular", stretch="Normal", italic=false}),
     -- font = wezterm.font("UDEV Gothic LG", {weight="Regular", stretch="Normal", style="Normal"}),
 	font_size = 12.0,
 	use_ime = true,
