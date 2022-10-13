@@ -1,15 +1,20 @@
-local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-local packer_bootstrap = nil
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  packer_bootstrap = vim.fn.system {
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
+local ensure_packer = function()
+  local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    vim.fn.system {
+      "git",
+      "clone",
+      "--depth",
+      "1",
+      "https://github.com/wbthomason/packer.nvim",
+      install_path,
+    }
+    return true
+  end
+  return false
 end
+
+local packer_boostrap = ensure_packer()
 
 vim.cmd [[packadd packer.nvim]]
 
@@ -24,7 +29,7 @@ require("packer").startup(function(use)
       require("config.plugin.lualine")
     end,
   }
-  use "onsails/lspkind-nvim"
+  use "onsails/lspkind-nvim" -- icon display during completion
   use {
     "rcarriga/nvim-notify",
     module = "notify",
@@ -38,7 +43,8 @@ require("packer").startup(function(use)
   use "windwp/nvim-autopairs"
   -- Lsp関係
   use "neovim/nvim-lspconfig"
-  use "williamboman/nvim-lsp-installer"
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
   -- 補完関係
   use {
     "L3MON4D3/LuaSnip",
@@ -68,4 +74,10 @@ require("packer").startup(function(use)
       require "config.plugin.nvim-cmp"
     end,
   }
+
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if packer_boostrap then
+    require('packer').sync()
+  end
 end)
