@@ -1,16 +1,18 @@
 # dotfiles
 
-
 ## Usage
+
+```bash
+$ git clone git@github.com:takeyarise/dotfiles.git
+$ cd dotfiles
+```
 
 **to install**
 ```bash
-ln -s path/to/dotfiles/config/hoge $HOME/.config/hoge
+$ stow -v <dir>
 ```
 
 **to remove**
 ```bash
-cd $HOME/.config
-unlink hoge
+$ stow -vD <dir>
 ```
-
