@@ -10,9 +10,11 @@ $ cd dotfiles
 **to install**
 ```bash
 $ stow -v <dir>
+$ stow -v nvim/
 ```
 
 **to remove**
 ```bash
 $ stow -vD <dir>
+$ stow -vD nvim/
 ```
