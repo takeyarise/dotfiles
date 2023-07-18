@@ -1,6 +1,6 @@
 vim.o.secure=false
 vim.o.hidden=false
-vim.wo.number=true
+vim.o.number=true
 vim.o.autoindent=true
 vim.o.tabstop=4
 vim.o.softtabstop=4
@@ -11,7 +11,7 @@ vim.o.shiftround=false
 vim.o.splitright=false
 vim.o.cursorline=true
 vim.o.textwidth=0 
--- vim.wo.listchars='tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲'
+-- vim.o.listchars='tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲'
 -- vim.o.conceallevel=0
 -- vim.o.signcolumn=yes
 -- Disable modeline.
