@@ -119,3 +119,4 @@ fi
 export SCREENDIR=$HOME/.screen
 eval "$(starship init bash)"
 
+. "$HOME/.cargo/env"
