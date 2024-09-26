@@ -15,6 +15,8 @@ set statusline=%<%f\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=[%l,%
 set wildmenu wildmode=list:full
 syntax on
 colorscheme ron
+set spell
+set spelllang=en,cjk
 " }}} UI & Color
 
 " Spaces & Tabs {{{
@@ -24,6 +26,8 @@ set shiftwidth=4    " number of spaces to use for autoindent
 set expandtab       " tabs are space
 set autoindent
 set copyindent      " copy indent from the previous line
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " }}} Spaces & Tabs
 
 " Search {{{
@@ -31,7 +35,6 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " }}} Search
 
 " General {{{
@@ -51,6 +54,12 @@ if &term =~ "xterm"
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif " no indent when paste
 " }}} General
+
+" Key mapping {{{
+let mapleader="\<Space>"
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+nmap <leader>s :set spell!<CR>
+" }}} Key mapping
 
 "---------"
 "set path+=/usr/include
@@ -75,24 +84,22 @@ augroup Binary
 augroup END
 
 " vim-plug {{{
-if has('nvim')
-    let s:vim_plug_dir = expand('~/.local/share/nvim/plugged')
-else
-    let s:vim_plug_dir = expand('~/.vim/plugged')
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-let s:vim_plug_repo_dir = s:vim_plug_dir . '/vim-plug'
-if has('vim_starting')
-    execute 'set runtimepath+=' . fnamemodify(s:vim_plug_repo_dir, ':p')
-    if !isdirectory(expand(s:vim_plug_repo_dir))
-        echo 'install vim-plug...'
-        call system('mkdir -p ' . s:vim_plug_repo_dir)
-        call system('git clone https://github.com/junegunn/vim-plug.git ' . s:vim_plug_repo_dir . '/autoload')
-    end
-endif
-let g:vim_plug_repo_dir_autoload=s:vim_plug_repo_dir . '/autoload'
-call plug#begin(s:vim_plug_dir)
-Plug 'junegunn/vim-plug', {'dir': g:vim_plug_repo_dir_autoload}
+
+call plug#begin()
 Plug 'junegunn/fzf'
 Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'preservim/nerdcommenter'
 call plug#end()
+
+nnoremap <leader>e :NERDTreeToggle<CR>
+let g:NERDCreateDefaultMappings = 0
+let g:NERDSpaceDelims = 1
+nmap <Leader>/ <Plug>NERDCommenterToggle
+vmap <Leader>/ <Plug>NERDCommenterToggle
+" }}} vim-plug
 
