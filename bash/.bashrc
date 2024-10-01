@@ -117,7 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 export SCREENDIR=$HOME/.screen
-eval "$(starship init bash)"
+# eval "$(starship init bash)"
 . "$HOME/.cargo/env"
 
 
