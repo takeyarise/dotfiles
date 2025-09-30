@@ -1,3 +1,0 @@
-config/nvim/plugin
-starship/*
-!starship/.config/starship.toml
