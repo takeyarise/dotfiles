@@ -130,4 +130,8 @@ if command -v screen >/dev/null 2>&1; then
 fi
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# mise
+if [ -x ~/.local/bin/mise ]; then
+    eval "$(~/.local/bin/mise activate bash)"
+fi
 
