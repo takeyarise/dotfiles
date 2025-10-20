@@ -134,4 +134,15 @@ fi
 if [ -x ~/.local/bin/mise ]; then
     eval "$(~/.local/bin/mise activate bash)"
 fi
+# mise for mac
+if [ -x /opt/homebrew/bin/mise ]; then
+    eval "$(/opt/homebrew/bin/mise activate bash)"
+fi
+# --- memo --- #
+# `dot_bashrc.tmpl` に rename して以下にしたほうが綺麗
+# {{ if eq .chezmoi.os "darwin" }}
+#   --- macOS 固有の設定 ---
+# {{ else if eq .chezmoi.os "linux" }}
+#   --- Linux 固有の設定 ---
+# {{ end }}
 
