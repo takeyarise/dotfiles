@@ -14,7 +14,7 @@ set laststatus=2
 set statusline=%<%f\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=[%l,%c%V]%8P
 set wildmenu wildmode=list:full
 syntax on
-colorscheme ron
+colorscheme desert
 set spell
 set spelllang=en,cjk
 " }}} UI & Color
