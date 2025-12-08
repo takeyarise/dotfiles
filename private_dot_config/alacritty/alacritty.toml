@@ -1,5 +1,5 @@
 [font]
-size = 8.0
+size = 10.0
 offset = { x = 0, y = 4 }
 normal = { family = "HackGen Console NF", style="Regular" }
 bold = { family = "HackGen Console NF", style="Bold" }
