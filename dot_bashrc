@@ -101,6 +101,12 @@ fi
 if [ -x /opt/homebrew/bin/mise ]; then
     eval "$(/opt/homebrew/bin/mise activate bash)"
 fi
+
+# linux brew
+if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 # --- memo --- #
 # `dot_bashrc.tmpl` に rename して以下にしたほうが綺麗
 # {{ if eq .chezmoi.os "darwin" }}
