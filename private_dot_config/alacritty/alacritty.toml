@@ -1,6 +1,9 @@
+[window]
+padding = { x = 4, y = 2 }
+
 [font]
-size = 10.0
-offset = { x = 0, y = 2 }
+size = 12.0
+offset = { x = 1, y = 2 }
 normal = { family = "HackGen Console NF", style="Regular" }
 bold = { family = "HackGen Console NF", style="Bold" }
 italic = { family = "HackGen Console NF", style="Italic" }

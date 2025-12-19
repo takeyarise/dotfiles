@@ -4,12 +4,3 @@
 README.md
 LICENSE
 
-{{- if not (lookPath "i3") }}
-.config/i3
-.config/i3status
-{{- end }}
-
-{{- if not (lookPath "alacritty") }}
-.config/alacritty
-{{- end }}
-
