@@ -20,12 +20,12 @@ set spelllang=en,cjk
 " }}} UI & Color
 
 " Spaces & Tabs {{{
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
-set shiftwidth=4    " number of spaces to use for autoindent
-set expandtab       " tabs are space
+set tabstop=4
+set shiftwidth=4
+set softtabstop=0
+set noexpandtab
 set autoindent
-set copyindent      " copy indent from the previous line
+set copyindent
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " }}} Spaces & Tabs
