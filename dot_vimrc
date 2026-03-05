@@ -38,6 +38,7 @@ set hlsearch
 " }}} Search
 
 " General {{{
+set autoread
 set hidden
 set nobackup
 set noswapfile
@@ -122,5 +123,8 @@ augroup lsp_install
     au!
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
+
+" Python -> ty だけ起動する
+let g:lsp_settings_filetype_python = 'ty'
 " }}} vim-plug
 
